@@ -1,0 +1,18 @@
+使用ApplicationRunner实现系统启动任务
+    创建类实现ApplicationRunner 实现方法
+     用法与使用CommandLineRunner一样,
+     区别:
+        参数不一样
+            CommandLineRunner 参数是 String args
+            ApplicationRunner 参数是 ApplicationArguments args 对象
+
+            // 获取所有的参数
+            String[] sourceArgs = args.getSourceArgs();
+            // 获取不是键值对的数据
+            List<String> nonOptionArgs = args.getNonOptionArgs();
+            // 获取属于键值对数据的所有的key的set
+            Set<String> set = args.getOptionNames();
+            for (String key : set) {
+                // 根据key获取value
+                System.out.println((key+":"+args.getOptionValues(key)));
+            }
